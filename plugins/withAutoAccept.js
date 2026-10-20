@@ -1,4 +1,4 @@
-const { withAndroidManifest, withMainApplication, withDangerousMod } = require('@expo/config-plugins');
+const { withAndroidManifest, withMainApplication, withDangerousMod } = require('expo/config-plugins');
 const fs = require('fs');
 const path = require('path');
 
@@ -75,7 +75,10 @@ const withAutoAccept = (config) => {
 
     // Adiciona import
     if (!contents.includes('import com.tresletras.move.AutoAcceptPackage')) {
-      contents = 'import com.tresletras.move.AutoAcceptPackage\n' + contents;
+      contents = contents.replace(
+        /(package\s+[^\n]+)/,
+        '$1\n\nimport com.tresletras.move.AutoAcceptPackage'
+      );
     }
 
     // Adiciona o pacote na lista de pacotes do React Native

@@ -29,6 +29,11 @@
     },
     "plugins": [
       "./plugins/withAutoAccept"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e0816f26-a307-4d60-8f32-befb6bbfae0e"
+      }
+    }
   }
 }
